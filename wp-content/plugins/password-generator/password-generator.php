@@ -50,7 +50,7 @@ function my_plugins_page() {
                 <input value="12" name="length" class="lp-custom-range__number range-slider__dyn" step="1" id="passLength" type="number" min="0" max="100" onclick="randomString()">
                  <div class="blockDiv">
                  <input class="range-slider__range" onclick="randomString()" type="range" value="12" min="0" max="100"> 
-                 <div class="loading-progree-bar" style="width:50%"></div>
+                 <div class="loading-progree-bar" style="width:12%"></div>
                  </div>
             </div>
             </div>

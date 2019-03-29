@@ -1,9 +1,12 @@
 function randomString(vall) {
     
+    //for declare the variable
     var UBoxCheck = document.getElementById("UBoxCheck");
     var LBoxCheck = document.getElementById("LBoxCheck");
     var NBoxCheck = document.getElementById("NBoxCheck");
     var SBoxCheck = document.getElementById("SBoxCheck");
+
+    //check the radio button selection condition
     if(vall=='2'){
         NBoxCheck.checked = false;
         SBoxCheck.checked = false;
@@ -11,6 +14,8 @@ function randomString(vall) {
         SBoxCheck.disabled = true;
    
     }
+
+    //check easy to read radio button selection condition
     else if(vall=='option'){
         NBoxCheck.checked = false;
         SBoxCheck.checked = false;
@@ -18,6 +23,8 @@ function randomString(vall) {
         SBoxCheck.disabled = false;
        
     }
+
+    //check all character radio button selection condition
     else if(vall=='all'){
         NBoxCheck.disabled = false;
         SBoxCheck.disabled = false;
@@ -41,12 +48,12 @@ function randomString(vall) {
     document.getElementById('code').innerHTML = result;
 }
 
-
+  // This is used for the range slider
   var rangeSlider = function(){
       var slider  = $('.range-slider'),
           range   = $('.range-slider__range'),
           value   = $('.range-slider__dyn');
-        
+           $(".loading-progree-bar").css("width",value.val()+"%");
       slider.each(function(){
 
         value.each(function(){
@@ -55,7 +62,8 @@ function randomString(vall) {
 
         range.on('input',  function(){
           value.val(this.value);
-          console.log(this.value)
+          $(".loading-progree-bar").css("width",this.value+"%");
+           //console.log(this.value)
         });
       });
       range.val(value.val());
@@ -64,26 +72,26 @@ function randomString(vall) {
     setTimeout(rangeSlider,1000);
 
 
+  //This function is used for the copy the generated password code
+  function copyToClipboard(code) {
 
-    function copyToClipboard(code) {
+        // Create an auxiliary hidden input
+        var aux = document.createElement("input");
 
-          // Create an auxiliary hidden input
-          var aux = document.createElement("input");
+        // Get the text from the element passed into the input
+        aux.setAttribute("value", document.getElementById("code").innerHTML);
 
-          // Get the text from the element passed into the input
-          aux.setAttribute("value", document.getElementById("code").innerHTML);
+        // Append the aux input to the body
+        document.body.appendChild(aux);
 
-          // Append the aux input to the body
-          document.body.appendChild(aux);
+        // Highlight the content
+        aux.select();
 
-          // Highlight the content
-          aux.select();
+        // Execute the copy command
+        document.execCommand("copy");
 
-          // Execute the copy command
-          document.execCommand("copy");
+        // Remove the input from the body
+        document.body.removeChild(aux);
 
-          // Remove the input from the body
-          document.body.removeChild(aux);
-
-    }
+  }
 
