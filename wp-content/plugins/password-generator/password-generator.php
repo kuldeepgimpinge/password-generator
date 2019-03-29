@@ -9,9 +9,13 @@
 * Author URI : https://www.impingesolutions.com/
 */
 
+
+//This is custom function to generate the plugins
 function my_plugins_page() {
 
 ?>
+
+    <!--This is the html layout used for generate the plugins---->
     <style>
         .entry-title{display:none;}
         .entry-header{display:none;}
@@ -29,7 +33,6 @@ function my_plugins_page() {
 					<h3 id="code"></h3>
 				</div>
 				<div class="lp-gp-icon">
-					
 					<div class="lp-gp-generate-icon" onclick="randomString()">
 					</div>
 				</div>
@@ -79,7 +82,6 @@ function my_plugins_page() {
                                 </div>
                         </div>
                     </div>
-                   
                     <div class="lp-pg-settings__checkbox-wrap">
                         <div class="lp-checkbox">
                             <input class="lp-checkbox__input" checked="checked" id="UBoxCheck" type="checkbox" name="uppercase" onclick="randomString()">
@@ -114,13 +116,17 @@ function my_plugins_page() {
                 </button>
             </div>
 	</div>
-
     <script>randomString('all')</script>
 <?php
 }
+
+//This function is used to generate the Shortcode of the plugin
 add_shortcode('PasswordGenerator','my_plugins_page');
+
+// This function is used to add the scripts and style of the plugin
 add_action('wp_enqueue_scripts','register_my_scripts');
 
+//This is used to include the style and script file
 function register_my_scripts(){
     wp_enqueue_style ('style-plugin', plugins_url( 'assets/css/style.css' , __FILE__ ) );
     wp_enqueue_style ('bootstrap-plugin', plugins_url( 'assets/css/bootstrap.min.css' , __FILE__ ) );
